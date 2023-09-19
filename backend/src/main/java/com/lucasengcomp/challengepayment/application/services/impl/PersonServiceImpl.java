@@ -20,4 +20,9 @@ public class PersonServiceImpl implements PersonServiceIT {
     public Page<PersonDTO> findAllPaged(Pageable pageable) {
         return repository.findPageable(pageable);
     }
+
+    @Override
+    public PersonDTO findById(Long id) {
+        return repository.findById(id);
+    }
 }

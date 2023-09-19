@@ -7,4 +7,6 @@ import org.springframework.data.domain.Pageable;
 public interface PersonServiceIT {
 
     Page<PersonDTO> findAllPaged(Pageable pageable);
+
+    PersonDTO findById(Long id);
 }
