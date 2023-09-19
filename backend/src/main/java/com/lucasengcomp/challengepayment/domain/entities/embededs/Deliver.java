@@ -1,4 +1,4 @@
-package com.lucasengcomp.challengepayment.domain.embededs;
+package com.lucasengcomp.challengepayment.domain.entities.embededs;
 
 import jakarta.persistence.Embeddable;
 import lombok.Data;

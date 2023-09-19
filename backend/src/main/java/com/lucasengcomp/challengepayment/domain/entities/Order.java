@@ -1,16 +1,20 @@
-package com.lucasengcomp.challengepayment.domain;
+package com.lucasengcomp.challengepayment.domain.entities;
 
-import com.lucasengcomp.challengepayment.domain.embededs.Deliver;
+import com.lucasengcomp.challengepayment.domain.entities.embededs.Deliver;
 import com.lucasengcomp.challengepayment.domain.enums.PaymentMethod;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "tbl_order")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Order implements Serializable {
