@@ -32,8 +32,4 @@ public class Person implements Serializable {
     private BigDecimal orderValue;
 
     private BigDecimal totalToPay;
-
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
 }

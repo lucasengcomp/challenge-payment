@@ -28,10 +28,10 @@ public class Order implements Serializable {
     @Column(nullable = false)
     private BigDecimal totalValue;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "total_to_pay")
     private BigDecimal totalToPay;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "payment_method")
     private PaymentMethod paymentMethod;
 
     @Column(name = "person_id")

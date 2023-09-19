@@ -1,7 +1,6 @@
 package com.lucasengcomp.challengepayment.application.dto;
 
 
-import com.lucasengcomp.challengepayment.domain.entities.Order;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +19,4 @@ public class PersonDTO {
     private BigDecimal orderValue;
 
     private BigDecimal totalToPay;
-
-    private Order order;
 }
