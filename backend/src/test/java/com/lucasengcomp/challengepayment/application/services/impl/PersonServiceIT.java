@@ -43,7 +43,7 @@ class PersonServiceImplTest {
 
     @Test
     @DisplayName("Should return 3 people per page")
-    void findAllPagedWith3PeoplePerPage() {
+    void findAllPaged_With3PeoplePerPage() {
         PageRequest pageRequest = PageRequest.of(0, 3);
         Page<PersonDTO> result = service.findAllPaged(pageRequest);
 
@@ -51,5 +51,25 @@ class PersonServiceImplTest {
         Assertions.assertEquals("Joel Victor", result.getContent().get(0).getName());
         Assertions.assertEquals("Eli Alves", result.getContent().get(1).getName());
         Assertions.assertEquals("Lucas Galvao", result.getContent().get(2).getName());
+    }
+
+    @Test
+    @DisplayName("Should return all people per page verify size")
+    void findAllPaged_ShouldReturn3PeoplePerPage() {
+        PageRequest pageRequest = PageRequest.of(0, 20);
+        Page<PersonDTO> result = service.findAllPaged(pageRequest);
+
+        Assertions.assertFalse(result.isEmpty());
+        Assertions.assertEquals(0, result.getNumber());
+        Assertions.assertEquals(20, result.getSize());
+        Assertions.assertEquals(4, result.getTotalElements());
+    }
+
+    @Test
+    @DisplayName("Should return page empty when page does not exist")
+    void findAllPaged_ShouldReturnEmptyPageWhenPageDoesNotExist() {
+        PageRequest pageRequest = PageRequest.of(50, 10);
+        Page<PersonDTO> result = service.findAllPaged(pageRequest);
+        Assertions.assertTrue(result.isEmpty());
     }
 }
