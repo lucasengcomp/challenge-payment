@@ -1,7 +1,7 @@
 package com.lucasengcomp.challengepayment.application.services.impl;
 
 import com.lucasengcomp.challengepayment.application.dto.PersonDTO;
-import com.lucasengcomp.challengepayment.application.services.interfaces.PersonServiceIT;
+import com.lucasengcomp.challengepayment.application.services.PersonServiceIT;
 import com.lucasengcomp.challengepayment.domain.repositories.PersonRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;

@@ -1,7 +1,9 @@
 package com.lucasengcomp.challengepayment.application.controllers;
 
 
+import com.lucasengcomp.challengepayment.application.dto.OrderDTO;
 import com.lucasengcomp.challengepayment.application.dto.PersonDTO;
+import com.lucasengcomp.challengepayment.application.services.OrderServiceIT;
 import com.lucasengcomp.challengepayment.application.services.PersonServiceIT;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -14,20 +16,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/people")
-public class PersonController {
+@RequestMapping("/orders")
+public class OrderController {
 
-    private PersonServiceIT service;
+    private OrderServiceIT service;
 
     @GetMapping
-    public ResponseEntity<Page<PersonDTO>> findPaged(Pageable pageable) {
-        Page<PersonDTO> allPleople = service.findAllPaged(pageable);
+    public ResponseEntity<Page<OrderDTO>> findPaged(Pageable pageable) {
+        Page<OrderDTO> allPleople = service.findAllPaged(pageable);
         return ResponseEntity.ok().body(allPleople);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<PersonDTO> findById(@PathVariable Long id) {
-        PersonDTO person = service.findById(id);
+    public ResponseEntity<OrderDTO> findById(@PathVariable Long id) {
+        OrderDTO person = service.findById(id);
         return ResponseEntity.ok().body(person);
     }
 }

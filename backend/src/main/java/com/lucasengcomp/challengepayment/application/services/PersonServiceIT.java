@@ -1,4 +1,4 @@
-package com.lucasengcomp.challengepayment.application.services.interfaces;
+package com.lucasengcomp.challengepayment.application.services;
 
 import com.lucasengcomp.challengepayment.application.dto.PersonDTO;
 import org.springframework.data.domain.Page;
