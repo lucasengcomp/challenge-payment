@@ -2,6 +2,7 @@ package com.lucasengcomp.challengepayment.application.mappers;
 
 
 import com.lucasengcomp.challengepayment.application.dto.OrderDTO;
+import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDTO;
 import com.lucasengcomp.challengepayment.domain.entities.Order;
 import org.mapstruct.Mapper;
 
@@ -9,4 +10,7 @@ import org.mapstruct.Mapper;
 public interface OrderMapper {
 
     OrderDTO convertToPersonDTO(Order entity);
+    InsertOrderDTO convertToInsertDTO(Order entity);
+
+    Order convertToOrder(InsertOrderDTO dto);
 }

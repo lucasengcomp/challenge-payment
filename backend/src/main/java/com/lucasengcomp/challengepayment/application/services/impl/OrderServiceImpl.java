@@ -1,6 +1,7 @@
 package com.lucasengcomp.challengepayment.application.services.impl;
 
 import com.lucasengcomp.challengepayment.application.dto.OrderDTO;
+import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDTO;
 import com.lucasengcomp.challengepayment.application.services.OrderServiceIT;
 import com.lucasengcomp.challengepayment.domain.repositories.OrderRepository;
 import lombok.AllArgsConstructor;
@@ -23,5 +24,10 @@ public class OrderServiceImpl implements OrderServiceIT {
     @Override
     public OrderDTO findById(Long id) {
         return repository.findById(id);
+    }
+
+    @Override
+    public InsertOrderDTO insert(InsertOrderDTO dto) {
+        return repository.insert(dto);
     }
 }
