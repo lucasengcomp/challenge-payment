@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tbl_order")
+@Table(name = "tbl_order", schema = "sc_divideai")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Order implements Serializable {
     private static final long serialVersionUID = 1L;

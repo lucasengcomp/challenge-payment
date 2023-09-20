@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tbl_person")
+@Table(name = "tbl_person", schema = "sc_divideai")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Person implements Serializable {
     private static final long serialVersionUID = 1L;
