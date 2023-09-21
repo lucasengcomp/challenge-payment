@@ -1,7 +1,7 @@
 package com.lucasengcomp.challengepayment.application.controllers;
 
 
-import com.lucasengcomp.challengepayment.application.dto.PersonDTO;
+import com.lucasengcomp.challengepayment.application.dto.person.PersonDTO;
 import com.lucasengcomp.challengepayment.application.services.impl.PersonServiceImpl;
 import com.lucasengcomp.challengepayment.domain.exceptions.service.ResourceNotFoundException;
 import com.lucasengcomp.challengepayment.factory.PersonBuilder;
@@ -58,8 +58,8 @@ class PersonControllerTest {
                 .accept(MediaType.APPLICATION_JSON));
         result.andExpect(status().isOk());
         result.andExpect(jsonPath("$.id").exists());
-        result.andExpect(jsonPath("$.orderValue").exists());
-        result.andExpect(jsonPath("$.totalToPay").exists());
+        result.andExpect(jsonPath("$.name").exists());
+        result.andExpect(jsonPath("$.cpf").exists());
     }
 
     @Test

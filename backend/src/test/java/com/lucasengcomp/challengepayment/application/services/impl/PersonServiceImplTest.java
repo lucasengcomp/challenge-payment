@@ -1,7 +1,7 @@
 package com.lucasengcomp.challengepayment.application.services.impl;
 
 
-import com.lucasengcomp.challengepayment.application.dto.PersonDTO;
+import com.lucasengcomp.challengepayment.application.dto.person.PersonDTO;
 import com.lucasengcomp.challengepayment.domain.exceptions.service.ResourceNotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -11,9 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 @Transactional
 @SpringBootTest
@@ -79,10 +76,6 @@ class PersonServiceImplTest {
         Assertions.assertNotNull(personById);
         Assertions.assertEquals(1, personById.getId());
         Assertions.assertEquals("Joel Victor", personById.getName());
-        Assertions.assertEquals(new BigDecimal("100.00"),
-                personById.getOrderValue().setScale(2, RoundingMode.HALF_UP));
-        Assertions.assertEquals(new BigDecimal("90.00"),
-                personById.getTotalToPay().setScale(2, RoundingMode.HALF_UP));
     }
 
     @Test

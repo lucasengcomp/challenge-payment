@@ -1,16 +1,19 @@
 package com.lucasengcomp.challengepayment.application.mappers;
 
 
-import com.lucasengcomp.challengepayment.application.dto.PersonDTO;
+import com.lucasengcomp.challengepayment.application.dto.person.InsertPersonDTO;
+import com.lucasengcomp.challengepayment.application.dto.person.PersonDTO;
+import com.lucasengcomp.challengepayment.application.dto.person.UpdatePersonDTO;
 import com.lucasengcomp.challengepayment.domain.entities.Person;
 import org.mapstruct.Mapper;
+import org.mapstruct.MappingTarget;
 
-import java.util.Optional;
 
 @Mapper(componentModel = "spring")
 public interface PersonMapper {
 
     PersonDTO convertToPersonDTO(Person entity);
-
-    Person convertToPerson(Optional<Person> idPerson);
+    Person convertInsertToEntity(InsertPersonDTO dto);
+    Person convertUpdateToEntity(UpdatePersonDTO dto, @MappingTarget Person person);
+    UpdatePersonDTO convertEntityToUpdate(Person entity);
 }
