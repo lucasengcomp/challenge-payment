@@ -26,7 +26,8 @@ public class Person implements Serializable {
     @Size(min = 2, max = 50, message = "O campo deve conter de 2 a 50 caracteres")
     private String name;
 
-    @Column(nullable = false)
+    private String cpf;
+
     private BigDecimal orderValue;
 
     private BigDecimal totalToPay;

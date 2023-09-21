@@ -1,7 +1,7 @@
-INSERT INTO sc_divideai.tbl_person (name, total_to_pay,  order_value) VALUES ('Joel Victor', 90.00, 100.00);
-INSERT INTO sc_divideai.tbl_person (name, total_to_pay,  order_value) VALUES ('Eli Alves', 70.00, 80.00);
-INSERT INTO sc_divideai.tbl_person (name, total_to_pay,  order_value) VALUES ('Lucas Galvao', 27.55, 30.00);
-INSERT INTO sc_divideai.tbl_person (name, total_to_pay,  order_value) VALUES ('Matheus Carvalho', 150.00, 145.00);
+INSERT INTO sc_divideai.tbl_person (name, cpf) VALUES ('Joel Victor', '111.222.333-44');
+INSERT INTO sc_divideai.tbl_person (name, cpf) VALUES ('Eli Alves', '222.333.444-55');
+INSERT INTO sc_divideai.tbl_person (name, cpf) VALUES ('Lucas Galvao', '444.333.222-11');
+INSERT INTO sc_divideai.tbl_person (name, cpf) VALUES ('Matheus Carvalho', '888.555.333-11');
 
 
 INSERT INTO sc_divideai.tbl_order (discount, payment_method, tax, total_to_pay, total_value, person_id) VALUES (20.00, 1, 8, 12, 28.00, 1);
