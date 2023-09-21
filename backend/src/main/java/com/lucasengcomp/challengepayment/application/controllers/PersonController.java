@@ -3,6 +3,7 @@ package com.lucasengcomp.challengepayment.application.controllers;
 
 import com.lucasengcomp.challengepayment.application.dto.person.PersonDTO;
 import com.lucasengcomp.challengepayment.application.dto.person.InsertPersonDTO;
+import com.lucasengcomp.challengepayment.application.dto.person.UpdatePersonDTO;
 import com.lucasengcomp.challengepayment.application.services.PersonServiceIT;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -37,5 +38,11 @@ public class PersonController {
         PersonDTO personDTO = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(personDTO);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<UpdatePersonDTO> update(@PathVariable Long id, @RequestBody UpdatePersonDTO dto) {
+        service.update(id, dto);
+        return ResponseEntity.ok().body(dto);
     }
 }

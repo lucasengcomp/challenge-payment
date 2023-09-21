@@ -1,4 +1,4 @@
-package com.lucasengcomp.challengepayment.application.dto;
+package com.lucasengcomp.challengepayment.application.dto.person;
 
 
 import lombok.AllArgsConstructor;
@@ -6,7 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 
 @Data
 @Builder
@@ -18,7 +17,5 @@ public class PersonDTO {
 
     private String name;
 
-    private BigDecimal orderValue;
-
-    private BigDecimal totalToPay;
+    private String cpf;
 }

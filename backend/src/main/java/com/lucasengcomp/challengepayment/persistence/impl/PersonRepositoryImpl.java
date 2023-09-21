@@ -2,6 +2,7 @@ package com.lucasengcomp.challengepayment.persistence.impl;
 
 import com.lucasengcomp.challengepayment.application.dto.person.InsertPersonDTO;
 import com.lucasengcomp.challengepayment.application.dto.person.PersonDTO;
+import com.lucasengcomp.challengepayment.application.dto.person.UpdatePersonDTO;
 import com.lucasengcomp.challengepayment.application.mappers.PersonMapper;
 import com.lucasengcomp.challengepayment.domain.entities.Person;
 import com.lucasengcomp.challengepayment.domain.exceptions.service.ResourceNotFoundException;
@@ -12,6 +13,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 import static com.lucasengcomp.challengepayment.application.util.Messages.ENTITY_NOT_FOUND;
 
@@ -38,9 +41,25 @@ public class PersonRepositoryImpl implements PersonRepository {
 
     @Override
     public PersonDTO insert(InsertPersonDTO dto) {
-        Person person = mapper.convertToEntity(dto);
+        Person person = mapper.convertInsertToEntity(dto);
         jpaPersonRepository.save(person);
         return mapper.convertToPersonDTO(person);
+    }
+
+    @Override
+    @Transactional
+    public UpdatePersonDTO update(Long id, UpdatePersonDTO dto) {
+
+        Optional<Person> idFound = jpaPersonRepository.findById(id);
+
+        if (idFound.isPresent()) {
+            Person entity = idFound.get();
+            mapper.convertUpdateToEntity(dto, entity);
+            entity = jpaPersonRepository.save(entity);
+
+            return mapper.convertEntityToUpdate(entity);
+        }
+        throw new ResourceNotFoundException(ENTITY_NOT_FOUND + id);
     }
 
     private PersonDTO getPersonById(Long id) throws ResourceNotFoundException {
