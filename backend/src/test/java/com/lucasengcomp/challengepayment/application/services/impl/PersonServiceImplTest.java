@@ -39,13 +39,21 @@ class PersonServiceImplTest {
     @Test
     @DisplayName("Should return 3 people per page")
     void findAllPaged_With3PeoplePerPage() {
-        PageRequest pageRequest = PageRequest.of(0, 3);
+        PageRequest pageRequest = PageRequest.of(0, 4);
         Page<PersonDTO> result = service.findAllPaged(pageRequest);
 
         Assertions.assertFalse(result.isEmpty());
         Assertions.assertEquals("Joel Victor", result.getContent().get(0).getName());
+        Assertions.assertEquals("111.222.333-44", result.getContent().get(0).getCpf());
+
         Assertions.assertEquals("Eli Alves", result.getContent().get(1).getName());
+        Assertions.assertEquals("222.333.444-55", result.getContent().get(1).getCpf());
+
         Assertions.assertEquals("Lucas Galvao", result.getContent().get(2).getName());
+        Assertions.assertEquals("444.333.222-11", result.getContent().get(2).getCpf());
+
+        Assertions.assertEquals("Matheus Carvalho", result.getContent().get(3).getName());
+        Assertions.assertEquals("888.555.333-11", result.getContent().get(3).getCpf());
     }
 
     @Test
