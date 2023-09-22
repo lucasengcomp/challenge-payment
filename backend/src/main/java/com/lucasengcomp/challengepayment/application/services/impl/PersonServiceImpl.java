@@ -37,4 +37,9 @@ public class PersonServiceImpl implements PersonServiceIT {
     public UpdatePersonDTO update(Long id, UpdatePersonDTO dto) {
         return repository.update(id, dto);
     }
+
+    @Override
+    public void deleteResource(Long id) {
+        repository.deleteResource(id);
+    }
 }

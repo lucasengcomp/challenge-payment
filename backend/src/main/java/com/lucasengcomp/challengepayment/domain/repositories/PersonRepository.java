@@ -15,4 +15,6 @@ public interface PersonRepository {
     PersonDTO insert(InsertPersonDTO dto);
 
     UpdatePersonDTO update(Long id, UpdatePersonDTO dto);
+
+    void deleteResource(Long id);
 }

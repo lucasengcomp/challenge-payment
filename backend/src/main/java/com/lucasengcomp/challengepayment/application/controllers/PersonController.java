@@ -1,8 +1,8 @@
 package com.lucasengcomp.challengepayment.application.controllers;
 
 
-import com.lucasengcomp.challengepayment.application.dto.person.PersonDTO;
 import com.lucasengcomp.challengepayment.application.dto.person.InsertPersonDTO;
+import com.lucasengcomp.challengepayment.application.dto.person.PersonDTO;
 import com.lucasengcomp.challengepayment.application.dto.person.UpdatePersonDTO;
 import com.lucasengcomp.challengepayment.application.services.PersonServiceIT;
 import lombok.AllArgsConstructor;
@@ -44,5 +44,11 @@ public class PersonController {
     public ResponseEntity<UpdatePersonDTO> update(@PathVariable Long id, @RequestBody UpdatePersonDTO dto) {
         service.update(id, dto);
         return ResponseEntity.ok().body(dto);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.deleteResource(id);
+        return ResponseEntity.noContent().build();
     }
 }
