@@ -3,8 +3,16 @@ INSERT INTO sc_divideai.tbl_person (name, cpf) VALUES ('Eli Alves', '222.333.444
 INSERT INTO sc_divideai.tbl_person (name, cpf) VALUES ('Lucas Galvao', '444.333.222-11');
 INSERT INTO sc_divideai.tbl_person (name, cpf) VALUES ('Matheus Carvalho', '888.555.333-11');
 
+INSERT INTO sc_divideai.tbl_item(price, description) VALUES (40, 'Hamburger');
+INSERT INTO sc_divideai.tbl_item(price, description) VALUES (2, 'Sobremesa');
+INSERT INTO sc_divideai.tbl_item(price, description) VALUES (8, 'Sanduiche');
+INSERT INTO sc_divideai.tbl_item(price, description) VALUES (5, 'Coca Cola');
+INSERT INTO sc_divideai.tbl_item(price, description) VALUES (3, 'Água');
 
-INSERT INTO sc_divideai.tbl_order (discount, payment_method, tax, total_to_pay, total_value, person_id) VALUES (20.00, 1, 8, 12, 28.00, 1);
-INSERT INTO sc_divideai.tbl_order (discount, payment_method, tax, total_to_pay, total_value, person_id) VALUES (30.00, 2, 9.57, 20.00, 38.00, 2);
-INSERT INTO sc_divideai.tbl_order (discount, payment_method, tax, total_to_pay, total_value, person_id) VALUES (40.00, 0, 3.99, 30.00, 48.00, 3);
-INSERT INTO sc_divideai.tbl_order (discount, payment_method, tax, total_to_pay, total_value, person_id) VALUES (50.00, 2, 10.07, 40.00,58.00, 4);
+INSERT INTO sc_divideai.tbl_order(discount, payment_method, tax, total_to_pay, total, person_id) VALUES (8, 1, 0, 38, 50, 1);
+INSERT INTO sc_divideai.tbl_order(discount, payment_method, tax, total_to_pay, total, person_id) VALUES (8, 1, 0, 38, 50, 2);
+
+INSERT INTO sc_divideai.tbl_order_items(items_id, order_id) VALUES (1, 1);
+INSERT INTO sc_divideai.tbl_order_items(items_id, order_id) VALUES (2, 1);
+INSERT INTO sc_divideai.tbl_order_items(items_id, order_id) VALUES (3, 1);
+

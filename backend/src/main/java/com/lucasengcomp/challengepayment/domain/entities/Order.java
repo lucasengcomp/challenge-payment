@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @Entity
@@ -25,18 +26,20 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private BigDecimal totalValue;
+    @Column(nullable = false, name = "payment_method")
+    private PaymentMethod paymentMethod;
 
     @Column(nullable = false, name = "total_to_pay")
     private BigDecimal totalToPay;
 
-    @Column(nullable = false, name = "payment_method")
-    private PaymentMethod paymentMethod;
-
     @Column(name = "person_id")
     private Long personId;
 
+    private BigDecimal total;
+
     @Embedded
     private Deliver deliver;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Item> items;
 }
