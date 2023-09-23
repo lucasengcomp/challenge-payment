@@ -1,14 +1,15 @@
-package com.lucasengcomp.challengepayment.domain.repositories;
+package com.lucasengcomp.challengepayment.application.services;
 
 import com.lucasengcomp.challengepayment.application.dto.item.InsertItemDTO;
 import com.lucasengcomp.challengepayment.application.dto.item.ItemDTO;
 import com.lucasengcomp.challengepayment.application.dto.item.UpdateItemDTO;
+import com.lucasengcomp.challengepayment.application.dto.person.UpdatePersonDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-public interface ItemRepository {
+public interface ItemServiceIT {
 
-    Page<ItemDTO> findPageable(Pageable pageable);
+    Page<ItemDTO> findAllPaged(Pageable pageable);
 
     ItemDTO findById(Long id);
 

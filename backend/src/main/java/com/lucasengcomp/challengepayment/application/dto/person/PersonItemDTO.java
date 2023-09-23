@@ -1,7 +1,7 @@
 package com.lucasengcomp.challengepayment.application.dto.person;
 
 
-import com.lucasengcomp.challengepayment.application.dto.order.ItemDTO;
+import com.lucasengcomp.challengepayment.application.dto.item.ItemDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -10,5 +10,8 @@ import org.mapstruct.Mapper;
 public interface OrderMapper {
 
     OrderDTO convertToPersonDTO(Order entity);
+
     InsertOrderDTO convertToInsertDTO(Order entity);
+
+    Order convertToOrder(InsertOrderDTO dto);
 }
