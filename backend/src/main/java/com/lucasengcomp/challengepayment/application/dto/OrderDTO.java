@@ -1,5 +1,6 @@
 package com.lucasengcomp.challengepayment.application.dto;
 
+import com.lucasengcomp.challengepayment.application.dto.person.PersonItemDTO;
 import com.lucasengcomp.challengepayment.domain.entities.embededs.Deliver;
 import com.lucasengcomp.challengepayment.domain.enums.PaymentMethod;
 import lombok.AllArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -15,13 +17,13 @@ public class OrderDTO {
 
     private Long id;
 
-    private BigDecimal totalValue;
+    private PaymentMethod paymentMethod;
 
     private BigDecimal totalToPay;
 
-    private PaymentMethod paymentMethod;
-
-    private Long personId;
+    private BigDecimal total;
 
     private Deliver deliver;
+
+    private List<PersonItemDTO> people;
 }

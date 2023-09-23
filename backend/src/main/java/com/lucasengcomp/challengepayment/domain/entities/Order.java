@@ -33,13 +33,15 @@ public class Order implements Serializable {
     private BigDecimal totalToPay;
 
     @Column(name = "person_id")
-    private Long personId;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Person> people;
+
+    @Column(name = "item_id")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Item> items;
 
     private BigDecimal total;
 
     @Embedded
     private Deliver deliver;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Item> items;
 }

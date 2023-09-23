@@ -1,7 +1,8 @@
 package com.lucasengcomp.challengepayment.application.dto.order;
 
-import com.lucasengcomp.challengepayment.domain.entities.Person;
-import com.lucasengcomp.challengepayment.domain.enums.TypeMeal;
+import com.lucasengcomp.challengepayment.domain.entities.Item;
+import com.lucasengcomp.challengepayment.domain.entities.embededs.Deliver;
+import com.lucasengcomp.challengepayment.domain.enums.PaymentMethod;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -14,16 +15,15 @@ public class InsertOrderDTO {
 
     private Long id;
 
-    private BigDecimal totalValueOrder;
+    private BigDecimal total;
 
     private BigDecimal totalToPay;
 
-    private BigDecimal taxRate;
+    private PaymentMethod paymentMethod;
 
-    private BigDecimal incrementRate;
+    private Deliver deliver;
 
-    private TypeMeal typeMeal;
+    private Long personId;
 
-    private List<Person> people;
-
+    private List<Item> items;
 }
