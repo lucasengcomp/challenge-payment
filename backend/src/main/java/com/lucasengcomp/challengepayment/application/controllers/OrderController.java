@@ -22,14 +22,14 @@ public class OrderController {
 
     @GetMapping
     public ResponseEntity<Page<OrderDTO>> findPaged(Pageable pageable) {
-        Page<OrderDTO> allPleople = service.findAllPaged(pageable);
-        return ResponseEntity.ok().body(allPleople);
+        Page<OrderDTO> allOrders = service.findAllPaged(pageable);
+        return ResponseEntity.ok().body(allOrders);
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<OrderDTO> findById(@PathVariable Long id) {
-        OrderDTO person = service.findById(id);
-        return ResponseEntity.ok().body(person);
+        OrderDTO order = service.findById(id);
+        return ResponseEntity.ok().body(order);
     }
 
     @PostMapping

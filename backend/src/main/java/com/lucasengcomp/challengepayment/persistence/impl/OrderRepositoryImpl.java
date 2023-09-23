@@ -25,7 +25,7 @@ public class OrderRepositoryImpl implements OrderRepository {
     @Override
     public Page<OrderDTO> findPageable(Pageable pageable) {
         Page<Order> personPage = jpaOrderRepository.findAll(pageable);
-        return personPage.map(mapper::convertToPersonDTO);
+        return personPage.map(mapper::convertToOrderDTO);
     }
 
     @Override
@@ -43,6 +43,6 @@ public class OrderRepositoryImpl implements OrderRepository {
     private OrderDTO getOrderById(Long id) throws ResourceNotFoundException {
         Order order = jpaOrderRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY_NOT_FOUND + id));
-        return mapper.convertToPersonDTO(order);
+        return mapper.convertToOrderDTO(order);
     }
 }

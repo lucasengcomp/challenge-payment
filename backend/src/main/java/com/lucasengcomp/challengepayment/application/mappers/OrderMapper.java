@@ -9,7 +9,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface OrderMapper {
 
-    OrderDTO convertToPersonDTO(Order entity);
+    OrderDTO convertToOrderDTO(Order entity);
 
     InsertOrderDTO convertToInsertDTO(Order entity);
 

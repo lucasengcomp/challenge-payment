@@ -3,7 +3,7 @@ package com.lucasengcomp.challengepayment.factory;
 import com.lucasengcomp.challengepayment.application.dto.person.PersonDTO;
 import com.lucasengcomp.challengepayment.domain.entities.Person;
 
-import java.math.BigDecimal;
+import java.util.ArrayList;
 
 public class PersonBuilder {
 
@@ -14,7 +14,8 @@ public class PersonBuilder {
                 "Freddie Mercury",
                 "000.111.222.33",
                 null,
-                null
+                null,
+                new ArrayList<>()
         );
     }
 
@@ -22,7 +23,8 @@ public class PersonBuilder {
         return new PersonDTO(
                 1L,
                 "Freddie Mercury",
-                "012.345.678.99"
+                "012.345.678.99",
+                new ArrayList<>()
         );
     }
 }

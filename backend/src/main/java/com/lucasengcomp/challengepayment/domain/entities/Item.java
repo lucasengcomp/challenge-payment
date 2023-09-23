@@ -25,4 +25,8 @@ public class Item {
     private String description;
 
     private BigDecimal price;
+
+    @JoinColumn(name = "person_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Person person;
 }

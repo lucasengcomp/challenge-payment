@@ -1,5 +1,6 @@
 package com.lucasengcomp.challengepayment.application.dto.order;
 
+import com.lucasengcomp.challengepayment.application.dto.person.PersonDTO;
 import com.lucasengcomp.challengepayment.domain.entities.Item;
 import com.lucasengcomp.challengepayment.domain.entities.embededs.Deliver;
 import com.lucasengcomp.challengepayment.domain.enums.PaymentMethod;
@@ -23,7 +24,5 @@ public class InsertOrderDTO {
 
     private Deliver deliver;
 
-    private Long personId;
-
-    private List<Item> items;
+    private List<PersonDTO> people;
 }

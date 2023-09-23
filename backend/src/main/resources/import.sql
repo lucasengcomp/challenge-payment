@@ -12,9 +12,9 @@ INSERT INTO sc_divideai.tbl_item(price, description) VALUES (8, 'Sanduiche');
 INSERT INTO sc_divideai.tbl_item(price, description) VALUES (5, 'Coca Cola');
 INSERT INTO sc_divideai.tbl_item(price, description) VALUES (3, 'Água');
 
-INSERT INTO sc_divideai.tbl_order_items(items_id, order_id) VALUES (1, 1);
-INSERT INTO sc_divideai.tbl_order_items(items_id, order_id) VALUES (2, 1);
-INSERT INTO sc_divideai.tbl_order_items(items_id, order_id) VALUES (3, 1);
+INSERT INTO sc_divideai.tbl_person_items(items_id, person_id) VALUES (1, 1);
+INSERT INTO sc_divideai.tbl_person_items(items_id, person_id) VALUES (2, 1);
+INSERT INTO sc_divideai.tbl_person_items(items_id, person_id) VALUES (3, 1);
 
 INSERT INTO sc_divideai.tbl_order_people(order_id, people_id) VALUES (1, 1);
 INSERT INTO sc_divideai.tbl_order_people(order_id, people_id) VALUES (1, 2);

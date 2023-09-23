@@ -6,6 +6,7 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @Entity
@@ -31,4 +32,7 @@ public class Person implements Serializable {
     private BigDecimal orderValue;
 
     private BigDecimal totalToPay;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Item> items;
 }

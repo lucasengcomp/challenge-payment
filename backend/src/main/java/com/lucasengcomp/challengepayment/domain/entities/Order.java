@@ -36,10 +36,6 @@ public class Order implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Person> people;
 
-    @Column(name = "item_id")
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Item> items;
-
     private BigDecimal total;
 
     @Embedded
