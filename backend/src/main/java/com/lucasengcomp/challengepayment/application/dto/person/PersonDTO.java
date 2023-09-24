@@ -1,12 +1,14 @@
 package com.lucasengcomp.challengepayment.application.dto.person;
 
 
+import com.lucasengcomp.challengepayment.application.dto.enums.PaymentMethodDTO;
 import com.lucasengcomp.challengepayment.application.dto.item.ItemDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -21,6 +23,12 @@ public class PersonDTO {
     private String name;
 
     private String cpf;
+
+    private BigDecimal totalToPay;
+
+    private BigDecimal totalPayment;
+
+    private PaymentMethodDTO paymentMethod;
 
     private List<ItemDTO> items;
 }

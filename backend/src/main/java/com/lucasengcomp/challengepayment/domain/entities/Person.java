@@ -1,5 +1,6 @@
 package com.lucasengcomp.challengepayment.domain.entities;
 
+import com.lucasengcomp.challengepayment.domain.enums.PaymentMethod;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -29,9 +30,11 @@ public class Person implements Serializable {
 
     private String cpf;
 
-    private BigDecimal orderValue;
-
     private BigDecimal totalToPay;
+
+    private BigDecimal totalPayment;
+
+    private PaymentMethod paymentMethod;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Item> items;

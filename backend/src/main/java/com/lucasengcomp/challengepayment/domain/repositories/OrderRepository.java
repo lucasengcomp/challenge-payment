@@ -1,7 +1,7 @@
 package com.lucasengcomp.challengepayment.domain.repositories;
 
-import com.lucasengcomp.challengepayment.application.dto.OrderDTO;
 import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDTO;
+import com.lucasengcomp.challengepayment.application.dto.order.OrderDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

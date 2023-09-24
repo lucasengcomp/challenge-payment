@@ -1,10 +1,17 @@
 package com.lucasengcomp.challengepayment.application.dto.person;
 
+
+import com.lucasengcomp.challengepayment.application.dto.enums.PaymentMethodDTO;
+import com.lucasengcomp.challengepayment.application.dto.item.ItemDTO;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Getter
+import java.math.BigDecimal;
+import java.util.List;
+
+
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class InsertPersonDTO {
@@ -14,4 +21,10 @@ public class InsertPersonDTO {
     private String name;
 
     private String cpf;
+
+    private BigDecimal totalPayment;
+
+    private PaymentMethodDTO paymentMethod;
+
+    private List<ItemDTO> items;
 }

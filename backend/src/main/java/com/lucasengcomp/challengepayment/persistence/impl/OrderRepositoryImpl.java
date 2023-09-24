@@ -1,7 +1,7 @@
 package com.lucasengcomp.challengepayment.persistence.impl;
 
-import com.lucasengcomp.challengepayment.application.dto.OrderDTO;
 import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDTO;
+import com.lucasengcomp.challengepayment.application.dto.order.OrderDTO;
 import com.lucasengcomp.challengepayment.application.mappers.OrderMapper;
 import com.lucasengcomp.challengepayment.domain.entities.Order;
 import com.lucasengcomp.challengepayment.domain.exceptions.service.ResourceNotFoundException;
@@ -35,9 +35,9 @@ public class OrderRepositoryImpl implements OrderRepository {
 
     @Override
     public InsertOrderDTO insert(InsertOrderDTO dto) {
-        Order entity = mapper.convertToOrder(dto);
-        jpaOrderRepository.save(entity);
-        return mapper.convertToInsertDTO(entity);
+        Order newOrder = mapper.convertToOrder(dto);
+        newOrder = jpaOrderRepository.save(newOrder);
+        return mapper.convertToInsertDTO(newOrder);
     }
 
     private OrderDTO getOrderById(Long id) throws ResourceNotFoundException {

@@ -1,7 +1,6 @@
 package com.lucasengcomp.challengepayment.domain.entities;
 
 import com.lucasengcomp.challengepayment.domain.entities.embededs.Deliver;
-import com.lucasengcomp.challengepayment.domain.enums.PaymentMethod;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,9 +24,6 @@ public class Order implements Serializable {
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false, name = "payment_method")
-    private PaymentMethod paymentMethod;
 
     @Column(nullable = false, name = "total_to_pay")
     private BigDecimal totalToPay;

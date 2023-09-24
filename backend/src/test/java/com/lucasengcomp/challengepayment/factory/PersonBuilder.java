@@ -3,8 +3,6 @@ package com.lucasengcomp.challengepayment.factory;
 import com.lucasengcomp.challengepayment.application.dto.person.PersonDTO;
 import com.lucasengcomp.challengepayment.domain.entities.Person;
 
-import java.util.ArrayList;
-
 public class PersonBuilder {
 
 
@@ -15,7 +13,8 @@ public class PersonBuilder {
                 "000.111.222.33",
                 null,
                 null,
-                new ArrayList<>()
+                null,
+                null
         );
     }
 
@@ -24,7 +23,10 @@ public class PersonBuilder {
                 1L,
                 "Freddie Mercury",
                 "012.345.678.99",
-                new ArrayList<>()
+                null,
+                null,
+                null,
+                null
         );
     }
 }

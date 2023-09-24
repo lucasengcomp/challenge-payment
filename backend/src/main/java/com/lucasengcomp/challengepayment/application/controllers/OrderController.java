@@ -1,9 +1,12 @@
 package com.lucasengcomp.challengepayment.application.controllers;
 
 
-import com.lucasengcomp.challengepayment.application.dto.OrderDTO;
+import com.lucasengcomp.challengepayment.application.dto.item.ItemDTO;
 import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDTO;
+import com.lucasengcomp.challengepayment.application.dto.order.OrderDTO;
+import com.lucasengcomp.challengepayment.application.dto.person.InsertPersonDTO;
 import com.lucasengcomp.challengepayment.application.services.OrderServiceIT;
+import com.lucasengcomp.challengepayment.domain.entities.Order;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.math.BigDecimal;
 import java.net.URI;
 
 @RestController

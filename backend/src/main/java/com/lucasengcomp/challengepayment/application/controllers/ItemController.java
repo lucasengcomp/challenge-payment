@@ -4,7 +4,6 @@ package com.lucasengcomp.challengepayment.application.controllers;
 import com.lucasengcomp.challengepayment.application.dto.item.InsertItemDTO;
 import com.lucasengcomp.challengepayment.application.dto.item.ItemDTO;
 import com.lucasengcomp.challengepayment.application.dto.item.UpdateItemDTO;
-import com.lucasengcomp.challengepayment.application.dto.person.UpdatePersonDTO;
 import com.lucasengcomp.challengepayment.application.services.ItemServiceIT;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
