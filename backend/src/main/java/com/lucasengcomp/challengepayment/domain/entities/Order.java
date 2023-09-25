@@ -1,5 +1,6 @@
 package com.lucasengcomp.challengepayment.domain.entities;
 
+import com.lucasengcomp.challengepayment.application.dto.enums.TypeMealDTO;
 import com.lucasengcomp.challengepayment.domain.entities.embededs.Deliver;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Digits;
@@ -34,6 +35,9 @@ public class Order implements Serializable {
     @PositiveOrZero(message = "O valor deve ser positivo ou zero")
     @Digits(integer = 6, fraction = 2, message = "O número deve ter no máximo {integer} dígitos inteiros e {fraction} casas decimais")
     private BigDecimal totalToPay;
+
+    @Enumerated(EnumType.STRING)
+    private TypeMealDTO typeMeal;
 
     @Embedded
     private Deliver deliver;

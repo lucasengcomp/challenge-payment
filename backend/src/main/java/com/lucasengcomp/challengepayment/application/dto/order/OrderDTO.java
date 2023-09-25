@@ -1,5 +1,6 @@
 package com.lucasengcomp.challengepayment.application.dto.order;
 
+import com.lucasengcomp.challengepayment.application.dto.enums.TypeMealDTO;
 import com.lucasengcomp.challengepayment.application.dto.person.PersonDTO;
 import com.lucasengcomp.challengepayment.domain.entities.embededs.Deliver;
 import lombok.AllArgsConstructor;
@@ -21,6 +22,8 @@ public class OrderDTO {
     private BigDecimal total;
 
     private Deliver deliver;
+
+    private TypeMealDTO typeMeal;
 
     private List<PersonDTO> people;
 }

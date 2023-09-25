@@ -3,8 +3,8 @@ INSERT INTO sc_divideai.tbl_person (name, cpf, total_to_pay, total, payment_meth
 INSERT INTO sc_divideai.tbl_person (name, cpf, total_to_pay, total, payment_method) VALUES ('Lucas Galvao', '444.333.222-11', 65, 60, 'PIX');
 INSERT INTO sc_divideai.tbl_person (name, cpf, total_to_pay, total, payment_method) VALUES ('Matheus Carvalho', '888.555.333-11', 45, 40, 'CARD');
 
-INSERT INTO sc_divideai.tbl_order(discount, tax, total_to_pay, total) VALUES (8, 20, 38, 50);
-INSERT INTO sc_divideai.tbl_order(discount, tax, total_to_pay, total) VALUES (8, 20, 58, 150);
+INSERT INTO sc_divideai.tbl_order(discount, tax, total_to_pay, total, type_meal) VALUES (8, 20, 38, 50, 'RESTAURANT');
+INSERT INTO sc_divideai.tbl_order(discount, tax, total_to_pay, total, type_meal) VALUES (8, 20, 58, 150, 'RESTAURANT');
 
 INSERT INTO sc_divideai.tbl_item(price, person_id, description) VALUES (40, 1, 'Hamburger');
 INSERT INTO sc_divideai.tbl_item(price, person_id, description) VALUES (2, 1, 'Sobremesa');

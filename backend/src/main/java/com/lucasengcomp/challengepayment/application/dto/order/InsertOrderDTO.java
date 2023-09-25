@@ -1,7 +1,9 @@
 package com.lucasengcomp.challengepayment.application.dto.order;
 
+import com.lucasengcomp.challengepayment.application.dto.enums.TypeMealDTO;
 import com.lucasengcomp.challengepayment.application.dto.person.InsertPersonDTO;
 import com.lucasengcomp.challengepayment.domain.entities.embededs.Deliver;
+import com.lucasengcomp.challengepayment.domain.enums.TypeMeal;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,6 +25,8 @@ public class InsertOrderDTO {
     private BigDecimal totalToPay;
 
     private Deliver deliver;
+
+    private TypeMealDTO typeMeal;
 
     private List<InsertPersonDTO> people;
 }
