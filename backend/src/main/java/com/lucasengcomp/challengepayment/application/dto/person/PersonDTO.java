@@ -24,9 +24,9 @@ public class PersonDTO {
 
     private String cpf;
 
-    private BigDecimal totalToPay;
+    private BigDecimal total;
 
-    private BigDecimal totalPayment;
+    private BigDecimal totalToPay;
 
     private PaymentMethodDTO paymentMethod;
 

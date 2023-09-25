@@ -24,7 +24,9 @@ public class InsertPersonDTO {
 
     private String cpf;
 
-    private BigDecimal totalPayment;
+    private BigDecimal total;
+
+    private BigDecimal totalToPay;
 
     private PaymentMethodDTO paymentMethod;
 

@@ -40,7 +40,7 @@ public class Person implements Serializable {
 
     @PositiveOrZero(message = "O valor deve ser positivo ou zero")
     @Digits(integer = 6, fraction = 2, message = "O número deve ter no máximo {integer} dígitos inteiros e {fraction} casas decimais")
-    private BigDecimal totalPayment;
+    private BigDecimal total;
 
     @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
