@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 @Service
 @AllArgsConstructor
@@ -44,20 +45,40 @@ public class OrderServiceImpl implements OrderServiceIT {
                 totalValue = totalValue.add(item.getPrice());
             }
         }
-        dto.setTotal(totalValue);
-        dto.setTotalToPay(totalValue.add(dto.getDeliver().getTax()).subtract(dto.getDeliver().getDiscount()));
+        BigDecimal totalValueTaxWithDiscount = totalValue
+                .add(dto.getDeliver().getTax())
+                .subtract(dto.getDeliver().getDiscount())
+                .setScale(2, RoundingMode.HALF_UP);
+
+        dto.setTotal(totalValue.setScale(2, RoundingMode.HALF_UP));
+        dto.setTotalToPay(totalValueTaxWithDiscount);
     }
 
     private void calculateTotalOrderPerPerson(InsertOrderDTO dto) {
         BigDecimal totalValue;
+
         for (InsertPersonDTO person : dto.getPeople()) {
             totalValue = BigDecimal.ZERO;
+
             for (ItemDTO item : person.getItems()) {
                 totalValue = totalValue.add(item.getPrice());
             }
-            BigDecimal tax = totalValue.divide(dto.getTotal()).multiply(dto.getDeliver().getTax());
-            BigDecimal discount = totalValue.divide(dto.getTotal()).multiply(dto.getDeliver().getDiscount());
-            BigDecimal totalPayment = totalValue.add(tax).subtract(discount);
+
+            BigDecimal totalValueRounded = totalValue.setScale(2, RoundingMode.HALF_UP);
+            BigDecimal totalToDivide = dto.getTotal().setScale(2, RoundingMode.HALF_UP);
+
+            BigDecimal tax = totalValueRounded
+                    .multiply(dto.getDeliver().getTax())
+                    .divide(totalToDivide, 2, RoundingMode.HALF_UP);
+
+            BigDecimal discount = totalValueRounded
+                    .multiply(dto.getDeliver().getDiscount())
+                    .divide(totalToDivide, 2, RoundingMode.HALF_UP);
+
+            BigDecimal totalPayment = totalValue
+                    .add(tax)
+                    .subtract(discount)
+                    .setScale(2, RoundingMode.HALF_UP);
 
             person.setTotalPayment(totalPayment);
         }
