@@ -1,8 +1,8 @@
 package com.lucasengcomp.challengepayment.application.dto.order;
 
+import com.lucasengcomp.challengepayment.application.dto.embedables.DeliverDTO;
 import com.lucasengcomp.challengepayment.application.dto.enums.TypeMealDTO;
 import com.lucasengcomp.challengepayment.application.dto.person.PersonDTO;
-import com.lucasengcomp.challengepayment.domain.entities.embededs.Deliver;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,7 +23,7 @@ public class OrderDTO {
 
     private BigDecimal percentageFeeWaiter;
 
-    private Deliver deliver;
+    private DeliverDTO deliver;
 
     private TypeMealDTO typeMeal;
 

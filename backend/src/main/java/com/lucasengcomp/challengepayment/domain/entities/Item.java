@@ -2,7 +2,7 @@ package com.lucasengcomp.challengepayment.domain.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Digits;
-import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -27,10 +27,10 @@ public class Item implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Length(min = 5, max = 100, message = "A descrição do item deve conter de 5 a 100 caracteres")
+    @Length(min = 3, max = 100, message = "A descrição do item deve conter de 3 a 100 caracteres")
     private String description;
 
-    @PositiveOrZero(message = "O valor deve ser positivo ou zero")
+    @Positive(message = "O valor deve ser positivo ou zero")
     @Digits(integer = 6, fraction = 2, message = "O número deve ter no máximo {integer} dígitos inteiros e {fraction} casas decimais")
     private BigDecimal price;
 

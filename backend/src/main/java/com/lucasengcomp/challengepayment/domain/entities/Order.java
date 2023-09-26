@@ -4,7 +4,7 @@ import com.lucasengcomp.challengepayment.application.dto.enums.TypeMealDTO;
 import com.lucasengcomp.challengepayment.domain.entities.embededs.Deliver;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Digits;
-import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -28,15 +28,15 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @PositiveOrZero(message = "O valor deve ser positivo ou zero")
+    @Positive(message = "O valor deve ser positivo ou zero")
     @Digits(integer = 6, fraction = 2, message = "O número deve ter no máximo {integer} dígitos inteiros e {fraction} casas decimais")
     private BigDecimal total;
 
-    @PositiveOrZero(message = "O valor deve ser positivo ou zero")
+    @Positive(message = "O valor deve ser positivo ou zero")
     @Digits(integer = 6, fraction = 2, message = "O número deve ter no máximo {integer} dígitos inteiros e {fraction} casas decimais")
     private BigDecimal totalToPay;
 
-    @PositiveOrZero(message = "O valor deve ser positivo ou zero")
+    @Positive(message = "O valor deve ser positivo ou zero")
     @Digits(integer = 6, fraction = 2, message = "O número deve ter no máximo {integer} dígitos inteiros e {fraction} casas decimais")
     private BigDecimal percentageFeeWaiter;
 

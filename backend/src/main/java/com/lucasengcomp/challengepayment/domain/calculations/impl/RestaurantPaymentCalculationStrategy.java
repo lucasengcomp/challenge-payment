@@ -1,6 +1,6 @@
 package com.lucasengcomp.challengepayment.domain.calculations.impl;
 
-import com.lucasengcomp.challengepayment.application.dto.item.ItemDTO;
+import com.lucasengcomp.challengepayment.application.dto.item.InsertItemDTO;
 import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDeliverDTO;
 import com.lucasengcomp.challengepayment.application.dto.person.InsertPersonDTO;
 import com.lucasengcomp.challengepayment.domain.calculations.RestaurantCalculationStrategy;
@@ -14,7 +14,6 @@ import static com.lucasengcomp.challengepayment.application.util.BigDecimalConst
 
 @Component
 public class RestaurantPaymentCalculationStrategy implements RestaurantCalculationStrategy {
-
 
     @Override
     public void calculateOrderDetails(InsertOrderDeliverDTO dto) {
@@ -45,7 +44,7 @@ public class RestaurantPaymentCalculationStrategy implements RestaurantCalculati
         BigDecimal totalValue = BigDecimal.ZERO;
         List<InsertPersonDTO> people = dto.getPeople();
         for (InsertPersonDTO person : people) {
-            for (ItemDTO item : person.getItems()) {
+            for (InsertItemDTO item : person.getItems()) {
                 totalValue = totalValue.add(item.getPrice());
             }
         }
@@ -54,7 +53,7 @@ public class RestaurantPaymentCalculationStrategy implements RestaurantCalculati
 
     private BigDecimal calculatePersonValue(InsertPersonDTO person) {
         return person.getItems().stream()
-                .map(ItemDTO::getPrice)
+                .map(InsertItemDTO::getPrice)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 

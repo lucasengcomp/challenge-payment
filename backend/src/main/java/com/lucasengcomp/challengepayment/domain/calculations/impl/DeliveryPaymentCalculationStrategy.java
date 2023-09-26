@@ -1,6 +1,6 @@
 package com.lucasengcomp.challengepayment.domain.calculations.impl;
 
-import com.lucasengcomp.challengepayment.application.dto.item.ItemDTO;
+import com.lucasengcomp.challengepayment.application.dto.item.InsertItemDTO;
 import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDeliverDTO;
 import com.lucasengcomp.challengepayment.application.dto.person.InsertPersonDTO;
 import com.lucasengcomp.challengepayment.domain.calculations.PaymentCalculationStrategy;
@@ -18,7 +18,7 @@ public class DeliveryPaymentCalculationStrategy implements PaymentCalculationStr
     public void calculateTotalOrder(InsertOrderDeliverDTO dto) {
         BigDecimal totalValue = BigDecimal.ZERO;
         for (InsertPersonDTO person : dto.getPeople()) {
-            for (ItemDTO item : person.getItems()) {
+            for (InsertItemDTO item : person.getItems()) {
                 totalValue = totalValue.add(item.getPrice());
             }
         }
@@ -32,7 +32,7 @@ public class DeliveryPaymentCalculationStrategy implements PaymentCalculationStr
         for (InsertPersonDTO person : dto.getPeople()) {
             BigDecimal totalValue = BigDecimal.ZERO;
 
-            for (ItemDTO item : person.getItems()) {
+            for (InsertItemDTO item : person.getItems()) {
                 totalValue = totalValue.add(item.getPrice());
             }
 

@@ -3,7 +3,7 @@ package com.lucasengcomp.challengepayment.application.dto.person;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.lucasengcomp.challengepayment.application.dto.enums.PaymentMethodDTO;
-import com.lucasengcomp.challengepayment.application.dto.item.ItemDTO;
+import com.lucasengcomp.challengepayment.application.dto.item.InsertItemDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,5 +30,5 @@ public class InsertPersonDTO {
 
     private PaymentMethodDTO paymentMethod;
 
-    private List<ItemDTO> items;
+    private List<InsertItemDTO> items;
 }
