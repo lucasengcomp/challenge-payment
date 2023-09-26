@@ -5,6 +5,7 @@ import com.lucasengcomp.challengepayment.application.dto.person.InsertPersonDTO;
 import com.lucasengcomp.challengepayment.application.dto.person.PersonDTO;
 import com.lucasengcomp.challengepayment.application.dto.person.UpdatePersonDTO;
 import com.lucasengcomp.challengepayment.application.services.PersonServiceIT;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -35,14 +36,14 @@ public class PersonController {
     }
 
     @PostMapping
-    public ResponseEntity<PersonDTO> insert(@RequestBody InsertPersonDTO dto) {
+    public ResponseEntity<PersonDTO> insert(@Valid @RequestBody InsertPersonDTO dto) {
         PersonDTO personDTO = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(personDTO);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UpdatePersonDTO> update(@PathVariable Long id, @RequestBody UpdatePersonDTO dto) {
+    public ResponseEntity<UpdatePersonDTO> update(@PathVariable Long id, @Valid @RequestBody UpdatePersonDTO dto) {
         service.update(id, dto);
         return ResponseEntity.ok().body(dto);
     }
