@@ -1,9 +1,11 @@
 package com.lucasengcomp.challengepayment.application.services.impl;
 
-import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDTO;
+import com.lucasengcomp.challengepayment.application.dto.enums.TypeMealDTO;
+import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDeliverDTO;
 import com.lucasengcomp.challengepayment.application.dto.order.OrderDTO;
 import com.lucasengcomp.challengepayment.application.services.OrderServiceIT;
 import com.lucasengcomp.challengepayment.domain.calculations.PaymentCalculationStrategy;
+import com.lucasengcomp.challengepayment.domain.calculations.RestaurantCalculationStrategy;
 import com.lucasengcomp.challengepayment.domain.repositories.OrderRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -15,8 +17,8 @@ import org.springframework.stereotype.Service;
 public class OrderServiceImpl implements OrderServiceIT {
 
     private OrderRepository repository;
-
-    private PaymentCalculationStrategy calculationStrategy;
+    private PaymentCalculationStrategy calculationStrategyDeliver;
+    private RestaurantCalculationStrategy calculationStrategyRestaurant;
 
     @Override
     public Page<OrderDTO> findAllPaged(Pageable pageable) {
@@ -29,13 +31,24 @@ public class OrderServiceImpl implements OrderServiceIT {
     }
 
     @Override
-    public InsertOrderDTO insert(InsertOrderDTO dto) {
-        calculateValuesTotalsOrdersAndPeople(dto);
+    public InsertOrderDeliverDTO insert(InsertOrderDeliverDTO dto) {
+        checkCalculationType(dto);
         return repository.insert(dto);
     }
 
-    private void calculateValuesTotalsOrdersAndPeople(InsertOrderDTO dto) {
-        calculationStrategy.calculateTotalOrder(dto);
-        calculationStrategy.calculateTotalOrderPerPerson(dto);
+    private void checkCalculationType(InsertOrderDeliverDTO dto) {
+        if (dto.getTypeMeal().equals(TypeMealDTO.RESTAURANT))
+            calculateValuesTotalsRestaurant(dto);
+        else
+            calculateValuesValuesTotalsDeliver(dto);
+    }
+
+    private void calculateValuesTotalsRestaurant(InsertOrderDeliverDTO dto) {
+        calculationStrategyRestaurant.calculateOrderDetails(dto);
+    }
+
+    private void calculateValuesValuesTotalsDeliver(InsertOrderDeliverDTO dto) {
+        calculationStrategyDeliver.calculateTotalOrder(dto);
+        calculationStrategyDeliver.calculateTotalOrderPerPerson(dto);
     }
 }

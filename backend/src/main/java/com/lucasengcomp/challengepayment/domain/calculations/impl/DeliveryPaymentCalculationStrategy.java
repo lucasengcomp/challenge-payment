@@ -1,7 +1,7 @@
 package com.lucasengcomp.challengepayment.domain.calculations.impl;
 
 import com.lucasengcomp.challengepayment.application.dto.item.ItemDTO;
-import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDTO;
+import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDeliverDTO;
 import com.lucasengcomp.challengepayment.application.dto.person.InsertPersonDTO;
 import com.lucasengcomp.challengepayment.domain.calculations.PaymentCalculationStrategy;
 import org.springframework.stereotype.Component;
@@ -15,7 +15,7 @@ import static com.lucasengcomp.challengepayment.application.util.BigDecimalConst
 public class DeliveryPaymentCalculationStrategy implements PaymentCalculationStrategy {
 
     @Override
-    public void calculateTotalOrder(InsertOrderDTO dto) {
+    public void calculateTotalOrder(InsertOrderDeliverDTO dto) {
         BigDecimal totalValue = BigDecimal.ZERO;
         for (InsertPersonDTO person : dto.getPeople()) {
             for (ItemDTO item : person.getItems()) {
@@ -28,7 +28,7 @@ public class DeliveryPaymentCalculationStrategy implements PaymentCalculationStr
     }
 
     @Override
-    public void calculateTotalOrderPerPerson(InsertOrderDTO dto) {
+    public void calculateTotalOrderPerPerson(InsertOrderDeliverDTO dto) {
         for (InsertPersonDTO person : dto.getPeople()) {
             BigDecimal totalValue = BigDecimal.ZERO;
 
@@ -45,7 +45,7 @@ public class DeliveryPaymentCalculationStrategy implements PaymentCalculationStr
         }
     }
 
-    private static BigDecimal calculateTotalToPayPerOrder(InsertOrderDTO dto, BigDecimal totalValue) {
+    private static BigDecimal calculateTotalToPayPerOrder(InsertOrderDeliverDTO dto, BigDecimal totalValue) {
         return totalValue
                 .add(dto.getDeliver().getTax())
                 .subtract(dto.getDeliver().getDiscount())
@@ -56,12 +56,12 @@ public class DeliveryPaymentCalculationStrategy implements PaymentCalculationStr
         return totalValue.add(frete).subtract(discount);
     }
 
-    private static BigDecimal calculateDiscountPerPerson(InsertOrderDTO dto, BigDecimal totalValue) {
+    private static BigDecimal calculateDiscountPerPerson(InsertOrderDeliverDTO dto, BigDecimal totalValue) {
         return totalValue.multiply(dto.getDeliver().getDiscount())
                 .divide(dto.getTotal(), DEFAULT_SCALE_2, RoundingMode.HALF_UP);
     }
 
-    private static BigDecimal calculateFreightPerPerson(InsertOrderDTO dto, BigDecimal totalValue) {
+    private static BigDecimal calculateFreightPerPerson(InsertOrderDeliverDTO dto, BigDecimal totalValue) {
         return totalValue.multiply(dto.getDeliver().getTax())
                 .divide(dto.getTotal(), DEFAULT_SCALE_2, RoundingMode.HALF_UP);
     }

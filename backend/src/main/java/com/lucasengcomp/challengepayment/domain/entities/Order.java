@@ -36,6 +36,10 @@ public class Order implements Serializable {
     @Digits(integer = 6, fraction = 2, message = "O número deve ter no máximo {integer} dígitos inteiros e {fraction} casas decimais")
     private BigDecimal totalToPay;
 
+    @PositiveOrZero(message = "O valor deve ser positivo ou zero")
+    @Digits(integer = 6, fraction = 2, message = "O número deve ter no máximo {integer} dígitos inteiros e {fraction} casas decimais")
+    private BigDecimal percentageFeeWaiter;
+
     @Enumerated(EnumType.STRING)
     private TypeMealDTO typeMeal;
 

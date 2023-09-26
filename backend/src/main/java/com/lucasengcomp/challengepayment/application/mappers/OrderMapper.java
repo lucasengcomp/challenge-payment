@@ -1,7 +1,7 @@
 package com.lucasengcomp.challengepayment.application.mappers;
 
 
-import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDTO;
+import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDeliverDTO;
 import com.lucasengcomp.challengepayment.application.dto.order.OrderDTO;
 import com.lucasengcomp.challengepayment.domain.entities.Order;
 import org.mapstruct.Mapper;
@@ -11,7 +11,7 @@ public interface OrderMapper {
 
     OrderDTO convertToOrderDTO(Order entity);
 
-    InsertOrderDTO convertToInsertDTO(Order entity);
+    InsertOrderDeliverDTO convertToInsertDTO(Order entity);
 
-    Order convertToOrder(InsertOrderDTO dto);
+    Order convertToOrder(InsertOrderDeliverDTO dto);
 }

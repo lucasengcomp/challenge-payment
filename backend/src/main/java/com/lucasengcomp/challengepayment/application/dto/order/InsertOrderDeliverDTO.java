@@ -1,9 +1,9 @@
 package com.lucasengcomp.challengepayment.application.dto.order;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.lucasengcomp.challengepayment.application.dto.enums.TypeMealDTO;
 import com.lucasengcomp.challengepayment.application.dto.person.InsertPersonDTO;
 import com.lucasengcomp.challengepayment.domain.entities.embededs.Deliver;
-import com.lucasengcomp.challengepayment.domain.enums.TypeMeal;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,13 +16,16 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class InsertOrderDTO {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class InsertOrderDeliverDTO {
 
     private Long id;
 
     private BigDecimal total;
 
     private BigDecimal totalToPay;
+
+    private BigDecimal percentageFeeWaiter;
 
     private Deliver deliver;
 

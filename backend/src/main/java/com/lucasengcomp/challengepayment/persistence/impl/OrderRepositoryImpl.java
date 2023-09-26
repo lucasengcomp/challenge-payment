@@ -1,6 +1,6 @@
 package com.lucasengcomp.challengepayment.persistence.impl;
 
-import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDTO;
+import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDeliverDTO;
 import com.lucasengcomp.challengepayment.application.dto.order.OrderDTO;
 import com.lucasengcomp.challengepayment.application.mappers.OrderMapper;
 import com.lucasengcomp.challengepayment.domain.entities.Order;
@@ -34,7 +34,7 @@ public class OrderRepositoryImpl implements OrderRepository {
     }
 
     @Override
-    public InsertOrderDTO insert(InsertOrderDTO dto) {
+    public InsertOrderDeliverDTO insert(InsertOrderDeliverDTO dto) {
         Order newOrder = mapper.convertToOrder(dto);
         newOrder = jpaOrderRepository.save(newOrder);
         return mapper.convertToInsertDTO(newOrder);

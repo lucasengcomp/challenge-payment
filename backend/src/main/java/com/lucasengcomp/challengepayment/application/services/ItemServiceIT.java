@@ -3,7 +3,6 @@ package com.lucasengcomp.challengepayment.application.services;
 import com.lucasengcomp.challengepayment.application.dto.item.InsertItemDTO;
 import com.lucasengcomp.challengepayment.application.dto.item.ItemDTO;
 import com.lucasengcomp.challengepayment.application.dto.item.UpdateItemDTO;
-import com.lucasengcomp.challengepayment.application.dto.person.UpdatePersonDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

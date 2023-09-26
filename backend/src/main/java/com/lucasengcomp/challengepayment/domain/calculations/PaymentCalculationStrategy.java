@@ -1,10 +1,10 @@
 package com.lucasengcomp.challengepayment.domain.calculations;
 
-import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDTO;
+import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDeliverDTO;
 
 public interface PaymentCalculationStrategy {
 
-    void calculateTotalOrder(InsertOrderDTO dto);
+    void calculateTotalOrder(InsertOrderDeliverDTO dto);
 
-    void calculateTotalOrderPerPerson(InsertOrderDTO dto);
+    void calculateTotalOrderPerPerson(InsertOrderDeliverDTO dto);
 }

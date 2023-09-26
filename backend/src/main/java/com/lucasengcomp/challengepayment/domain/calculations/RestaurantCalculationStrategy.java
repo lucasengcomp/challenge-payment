@@ -1,10 +1,8 @@
 package com.lucasengcomp.challengepayment.domain.calculations;
 
-import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDTO;
-
-import java.math.BigDecimal;
+import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDeliverDTO;
 
 public interface RestaurantCalculationStrategy {
 
-    BigDecimal calculateTotalToPay(InsertOrderDTO dto, BigDecimal totalValue);
+    void calculateOrderDetails(InsertOrderDeliverDTO dto);
 }
