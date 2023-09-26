@@ -9,17 +9,17 @@ public class StandardError implements Serializable {
     private Instant timestamp;
     private Integer status;
     private String error;
-    private String messsage;
+    private String message;
     private String path;
 
     public StandardError() {
     }
 
-    public StandardError(Instant timestamp, Integer status, String error, String messsage, String path) {
+    public StandardError(Instant timestamp, Integer status, String error, String message, String path) {
         this.timestamp = timestamp;
         this.status = status;
         this.error = error;
-        this.messsage = messsage;
+        this.message = message;
         this.path = path;
     }
 
@@ -48,11 +48,11 @@ public class StandardError implements Serializable {
     }
 
     public String getMesssage() {
-        return messsage;
+        return message;
     }
 
-    public void setMesssage(String messsage) {
-        this.messsage = messsage;
+    public void setMessage(String messsage) {
+        this.message = messsage;
     }
 
     public String getPath() {

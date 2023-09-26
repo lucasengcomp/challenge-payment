@@ -4,6 +4,7 @@ package com.lucasengcomp.challengepayment.application.controllers;
 import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDeliverDTO;
 import com.lucasengcomp.challengepayment.application.dto.order.OrderDTO;
 import com.lucasengcomp.challengepayment.application.services.OrderServiceIT;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,7 +34,7 @@ public class OrderController {
     }
 
     @PostMapping
-    public ResponseEntity<InsertOrderDeliverDTO> insert(@RequestBody InsertOrderDeliverDTO dto) {
+    public ResponseEntity<InsertOrderDeliverDTO> insert(@Valid @RequestBody InsertOrderDeliverDTO dto) {
         InsertOrderDeliverDTO inserted = service.insert(dto);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()

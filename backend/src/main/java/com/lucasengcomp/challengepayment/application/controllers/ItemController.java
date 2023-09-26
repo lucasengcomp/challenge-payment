@@ -5,6 +5,7 @@ import com.lucasengcomp.challengepayment.application.dto.item.InsertItemDTO;
 import com.lucasengcomp.challengepayment.application.dto.item.ItemDTO;
 import com.lucasengcomp.challengepayment.application.dto.item.UpdateItemDTO;
 import com.lucasengcomp.challengepayment.application.services.ItemServiceIT;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -35,14 +36,14 @@ public class ItemController {
     }
 
     @PostMapping
-    public ResponseEntity<ItemDTO> insert(@RequestBody InsertItemDTO dto) {
+    public ResponseEntity<ItemDTO> insert(@Valid @RequestBody InsertItemDTO dto) {
         ItemDTO itemDTO = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(itemDTO);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UpdateItemDTO> update(@PathVariable Long id, @RequestBody UpdateItemDTO dto) {
+    public ResponseEntity<UpdateItemDTO> update(@PathVariable Long id, @Valid @RequestBody UpdateItemDTO dto) {
         service.update(id, dto);
         return ResponseEntity.ok().body(dto);
     }
