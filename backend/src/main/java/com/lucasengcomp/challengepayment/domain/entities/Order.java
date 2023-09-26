@@ -46,8 +46,6 @@ public class Order implements Serializable {
     @Embedded
     private Deliver deliver;
 
-    @Column(name = "person_id")
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Person> people;
-
 }
