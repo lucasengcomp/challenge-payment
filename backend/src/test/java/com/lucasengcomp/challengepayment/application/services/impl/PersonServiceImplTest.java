@@ -30,10 +30,10 @@ class PersonServiceImplTest {
         Page<PersonDTO> result = service.findAllPaged(pageRequest);
 
         Assertions.assertFalse(result.isEmpty());
-        Assertions.assertEquals("Joel Victor", result.getContent().get(0).getName());
-        Assertions.assertEquals("Eli Alves", result.getContent().get(1).getName());
-        Assertions.assertEquals("Lucas Galvao", result.getContent().get(2).getName());
-        Assertions.assertEquals("Matheus Carvalho", result.getContent().get(3).getName());
+        Assertions.assertEquals("Tony Stark", result.getContent().get(0).getName());
+        Assertions.assertEquals("Harry Potter", result.getContent().get(1).getName());
+        Assertions.assertEquals("Alvo Percival Wulfrico Brian Dumbledore", result.getContent().get(2).getName());
+        Assertions.assertEquals("Jack Sparrow", result.getContent().get(3).getName());
     }
 
     @Test
@@ -43,16 +43,16 @@ class PersonServiceImplTest {
         Page<PersonDTO> result = service.findAllPaged(pageRequest);
 
         Assertions.assertFalse(result.isEmpty());
-        Assertions.assertEquals("Joel Victor", result.getContent().get(0).getName());
+        Assertions.assertEquals("Tony Stark", result.getContent().get(0).getName());
         Assertions.assertEquals("111.222.333-44", result.getContent().get(0).getCpf());
 
-        Assertions.assertEquals("Eli Alves", result.getContent().get(1).getName());
+        Assertions.assertEquals("Harry Potter", result.getContent().get(1).getName());
         Assertions.assertEquals("222.333.444-55", result.getContent().get(1).getCpf());
 
-        Assertions.assertEquals("Lucas Galvao", result.getContent().get(2).getName());
+        Assertions.assertEquals("Alvo Percival Wulfrico Brian Dumbledore", result.getContent().get(2).getName());
         Assertions.assertEquals("444.333.222-11", result.getContent().get(2).getCpf());
 
-        Assertions.assertEquals("Matheus Carvalho", result.getContent().get(3).getName());
+        Assertions.assertEquals("Jack Sparrow", result.getContent().get(3).getName());
         Assertions.assertEquals("888.555.333-11", result.getContent().get(3).getCpf());
     }
 
@@ -83,7 +83,7 @@ class PersonServiceImplTest {
 
         Assertions.assertNotNull(personById);
         Assertions.assertEquals(1, personById.getId());
-        Assertions.assertEquals("Joel Victor", personById.getName());
+        Assertions.assertEquals("Tony Stark", personById.getName());
     }
 
     @Test
