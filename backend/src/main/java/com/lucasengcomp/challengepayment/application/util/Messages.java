@@ -16,6 +16,7 @@ public class Messages {
 
     // UTILS
     public static final String ERROR_INSTANTIATED_CLASS = "Essa classe não pode ser instanciada pois é somente leitura!";
+    public static final String REMOVED_SUCESSFULL = "Registro excluído com sucesso";
 
     protected Messages() {
     }

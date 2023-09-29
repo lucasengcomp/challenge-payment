@@ -2,6 +2,7 @@ package com.lucasengcomp.challengepayment.persistence.impl;
 
 import com.lucasengcomp.challengepayment.application.dto.person.InsertPersonDTO;
 import com.lucasengcomp.challengepayment.application.dto.person.PersonDTO;
+import com.lucasengcomp.challengepayment.application.dto.person.SimplePersonDTO;
 import com.lucasengcomp.challengepayment.application.dto.person.UpdatePersonDTO;
 import com.lucasengcomp.challengepayment.application.mappers.PersonMapper;
 import com.lucasengcomp.challengepayment.domain.entities.Person;
@@ -43,10 +44,10 @@ public class PersonRepositoryImpl implements PersonRepository {
     }
 
     @Override
-    public PersonDTO insert(InsertPersonDTO dto) {
+    public SimplePersonDTO insert(InsertPersonDTO dto) {
         Person person = mapper.convertInsertToEntity(dto);
         jpaPersonRepository.save(person);
-        return mapper.convertToPersonDTO(person);
+        return mapper.convertToSimplePersonDTO(person);
     }
 
     @Override

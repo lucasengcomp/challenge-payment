@@ -36,6 +36,11 @@ public class OrderServiceImpl implements OrderServiceIT {
         return repository.insert(dto);
     }
 
+    @Override
+    public void deleteResource(Long id) {
+        repository.deleteById(id);
+    }
+
     private void checkCalculationType(InsertOrderDeliverDTO dto) {
         if (dto.getTypeMeal().equals(TypeMealDTO.RESTAURANT))
             calculateValuesTotalsRestaurant(dto);

@@ -8,11 +8,14 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+
+import static com.lucasengcomp.challengepayment.application.util.Messages.REMOVED_SUCESSFULL;
 
 @RestController
 @AllArgsConstructor
@@ -41,5 +44,11 @@ public class OrderController {
                 .path("/{id}")
                 .buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(inserted);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id) {
+        service.deleteResource(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(REMOVED_SUCESSFULL);
     }
 }

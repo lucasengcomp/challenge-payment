@@ -4,15 +4,18 @@ import com.lucasengcomp.challengepayment.application.dto.order.InsertOrderDelive
 import com.lucasengcomp.challengepayment.application.dto.order.OrderDTO;
 import com.lucasengcomp.challengepayment.application.mappers.OrderMapper;
 import com.lucasengcomp.challengepayment.domain.entities.Order;
+import com.lucasengcomp.challengepayment.domain.exceptions.service.DataBaseException;
 import com.lucasengcomp.challengepayment.domain.exceptions.service.ResourceNotFoundException;
 import com.lucasengcomp.challengepayment.domain.repositories.OrderRepository;
 import com.lucasengcomp.challengepayment.persistence.interfaces.JpaOrderRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import static com.lucasengcomp.challengepayment.application.util.Messages.ENTITY_NOT_FOUND;
+import static com.lucasengcomp.challengepayment.application.util.Messages.INTEGRITY_VIOLATION;
 
 
 @Repository
@@ -38,6 +41,16 @@ public class OrderRepositoryImpl implements OrderRepository {
         Order newOrder = mapper.convertToOrder(dto);
         newOrder = jpaOrderRepository.save(newOrder);
         return mapper.convertToInsertDTO(newOrder);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        try {
+            getOrderById(id);
+            jpaOrderRepository.deleteById(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataBaseException(INTEGRITY_VIOLATION);
+        }
     }
 
     private OrderDTO getOrderById(Long id) throws ResourceNotFoundException {

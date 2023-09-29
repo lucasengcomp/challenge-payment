@@ -11,4 +11,6 @@ public interface OrderRepository {
     OrderDTO findById(Long id);
 
     InsertOrderDeliverDTO insert(InsertOrderDeliverDTO dto);
+
+    void deleteById(Long id);
 }

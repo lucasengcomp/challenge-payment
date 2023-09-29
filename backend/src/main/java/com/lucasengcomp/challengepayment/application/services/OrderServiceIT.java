@@ -12,4 +12,6 @@ public interface OrderServiceIT {
     OrderDTO findById(Long id);
 
     InsertOrderDeliverDTO insert(InsertOrderDeliverDTO dto);
+
+    void deleteResource(Long id);
 }
