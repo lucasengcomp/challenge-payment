@@ -16,4 +16,5 @@ public interface PersonMapper {
     Person convertInsertToEntity(InsertPersonDTO dto);
     Person convertUpdateToEntity(UpdatePersonDTO dto, @MappingTarget Person person);
     UpdatePersonDTO convertEntityToUpdate(Person entity);
+    InsertPersonDTO convertEntityToInsert(Person entity);
 }

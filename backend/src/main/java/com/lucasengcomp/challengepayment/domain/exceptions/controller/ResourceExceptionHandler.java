@@ -45,7 +45,7 @@ public class ResourceExceptionHandler {
                                                       HttpServletRequest request) {
         HttpStatus status = HttpStatus.UNPROCESSABLE_ENTITY;
         ValidationError error = new ValidationError();
-        messageError(error, status, ERROR_ARGUMENT_EXCEPTION, e.getMessage(), request);
+        messageError(error, status, ERROR_ARGUMENT_EXCEPTION, e.getFieldError().getDefaultMessage(), request);
 
         fieldsMethodArgumentNotValid(e, error);
 
@@ -63,14 +63,6 @@ public class ResourceExceptionHandler {
 
         return ResponseEntity.status(status).body(error);
     }
-
-//    @ExceptionHandler(DataIntegrityViolationException.class)
-//    public ResponseEntity<StandardError> dataIntegrityViolation(DataIntegrityViolationException e, HttpServletRequest request) {
-//        HttpStatus status = HttpStatus.UNPROCESSABLE_ENTITY;
-//        StandardError error = new StandardError();
-//        messageError(error, status, ERROR_INTEGRITY_DATA_EXCEPTION, e.getMessage(), request);
-//        return ResponseEntity.status(status).body(error);
-//    }
 
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<StandardError> dataIntegrityViolation(DataIntegrityViolationException e, HttpServletRequest request) {

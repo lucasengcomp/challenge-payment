@@ -1,7 +1,9 @@
 package com.lucasengcomp.challengepayment.application.services.impl;
 
 
+import com.lucasengcomp.challengepayment.application.dto.person.InsertPersonDTO;
 import com.lucasengcomp.challengepayment.application.dto.person.PersonDTO;
+import com.lucasengcomp.challengepayment.application.mappers.PersonMapper;
 import com.lucasengcomp.challengepayment.domain.exceptions.service.ResourceNotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -12,6 +14,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.transaction.annotation.Transactional;
 
+import static com.lucasengcomp.challengepayment.application.util.Messages.ENTITY_NOT_FOUND;
+import static com.lucasengcomp.challengepayment.factory.PersonBuilder.createPersonValid;
+import static com.lucasengcomp.challengepayment.factory.PersonBuilder.updatePersonValid;
+import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
+
 @Transactional
 @SpringBootTest
 class PersonServiceImplTest {
@@ -19,9 +27,47 @@ class PersonServiceImplTest {
     @Autowired
     private PersonServiceImpl service;
 
+    @Autowired
+    private PersonMapper mapper;
+
     private Long existingId = 1L;
     private Long nonExistingId = 1000L;
 
+    @Test
+    @DisplayName("Should attempt to update a person and return a custom exception")
+    void updateExistingPerson2() {
+        ResourceNotFoundException result = assertThrows(ResourceNotFoundException.class, () -> {
+            service.update(nonExistingId, updatePersonValid());
+        });
+        assertEquals(result.getMessage(), ENTITY_NOT_FOUND + nonExistingId);
+    }
+
+    @Test
+    @DisplayName("Should throw exception when deleting non-existing Person")
+    void deleteNonExistingItem() {
+        assertThrows(ResourceNotFoundException.class, () -> {
+            service.deleteResource(nonExistingId);
+        });
+    }
+
+    @Test
+    @DisplayName("Should delete an existing Person")
+    void deleteExistingItem() {
+        assertDoesNotThrow(() -> {
+            service.deleteResource(existingId);
+        });
+    }
+
+    @Test
+    @DisplayName("Should insert a new Person")
+    void insertPersonValid() {
+        InsertPersonDTO insertPersonDTO = mapper.convertEntityToInsert(createPersonValid());
+        PersonDTO personInserted = service.insert(insertPersonDTO);
+
+        assertNotNull(personInserted);
+        assertNotNull(personInserted.getId());
+        assertEquals(personInserted.getName(), insertPersonDTO.getName());
+    }
 
     @Test
     @DisplayName("Should return Person paged")
