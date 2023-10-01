@@ -1,0 +1,438 @@
+{
+	"info": {
+		"_postman_id": "90e6fe2a-4bc3-4a74-b1f5-01ef0002f0bf",
+		"name": "CHALLENGE-Softexpert",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5404477"
+	},
+	"item": [
+		{
+			"name": "Person",
+			"item": [
+				{
+					"name": "Find by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/people/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"people",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Brian May\",\r\n    \"cpf\" : \"000.111.222-88\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/people",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"people"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Joel DEV\",\r\n    \"cpf\" : \"123.123.123-22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/people/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"people",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Lucas Galvao\",\r\n    \"cpf\": \"63401883038\",\r\n    \"email\": \"anaveiga@email.com\",\r\n    \"telefone\": \"62999887765\",\r\n    \"dataNascimento\": \"1995-01-01\",\r\n    \"endereco\": \"Rua Paulista numero 01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/clientes/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"clientes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ids\": [1, 2, 3]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/people/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"people",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindPaged",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/people",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"people"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Item",
+			"item": [
+				{
+					"name": "Find by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/5",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Fruta Tâmara\",\r\n    \"price\": 70.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/items",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Hamburger Top\",\r\n    \"price\": 21.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/items/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindPaged",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Find by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/orders/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"orders",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/orders/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"orders",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert DELIVER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"typeMeal\" : \"DELIVER\",\r\n    \"deliver\": {\r\n        \"tax\": 5.00,\r\n        \"discount\": 10.00\r\n    },\r\n    \"people\": [\r\n        {\r\n            \"name\": \"Tony Stark\",\r\n            \"cpf\": \"111.222.333-44\",\r\n            \"paymentMethod\": \"MONEY\",\r\n            \"items\": [\r\n                {\r\n                    \"description\": \"Hamburger\",\r\n                    \"price\": 10\r\n                },\r\n                {\r\n                    \"description\": \"Refrigerante\",\r\n                    \"price\": 8.00\r\n                },\r\n                {\r\n                    \"description\": \"Batata\",\r\n                    \"price\": 20\r\n                },\r\n                {\r\n                    \"description\": \"Combo casal\",\r\n                    \"price\": 69.00\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"Lucas Galvao\",\r\n            \"cpf\": \"111.222.333-44\",\r\n            \"paymentMethod\": \"CARD\",\r\n            \"items\": [\r\n                {\r\n                    \"description\": \"Barca de sanduiche\",\r\n                    \"price\": 75.00\r\n                },\r\n                {\r\n                    \"description\": \"Kebab\",\r\n                    \"price\": 21.00\r\n                },\r\n                {\r\n                    \"description\": \"Shawarma\",\r\n                    \"price\": 10\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/orders",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert RESTAURANT",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"typeMeal\" : \"RESTAURANT\",\r\n    \"percentageFeeWaiter\" : 15.75,\r\n    \"people\": [\r\n        {\r\n            \"name\": \"Alvo Percival\",\r\n            \"cpf\": \"111.222.333-44\",\r\n            \"paymentMethod\": \"CARD\",\r\n            \"items\": [\r\n                {\r\n                    \"description\": \"Nachos\",\r\n                    \"price\": 20.00\r\n                },\r\n                {\r\n                    \"description\": \"Ravioli\",\r\n                    \"price\": 35.79\r\n                },\r\n                {\r\n                    \"description\": \"Arancino\",\r\n                    \"price\": 23.99\r\n                },\r\n                {\r\n                    \"description\": \"Brownie\",\r\n                    \"price\": 12.00\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"Jack Sparrow\",\r\n            \"cpf\": \"111.222.333-44\",\r\n            \"paymentMethod\": \"PIX\",\r\n            \"items\": [\r\n                {\r\n                    \"description\": \"Açaí\",\r\n                    \"price\": 29.99\r\n                },\r\n                {\r\n                    \"description\": \"Camarão\",\r\n                    \"price\": 36.99\r\n                },\r\n                {\r\n                    \"description\": \"Peixe frito\",\r\n                    \"price\": 49.99\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/orders",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindPaged",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/orders",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
