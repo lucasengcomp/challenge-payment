@@ -14,8 +14,11 @@ public class Messages {
 
     public static final String DATABASE_EXCEPTION = "Database Exception";
 
+    public static final String INVALID_REQUISITION = "Requisição inválida";
+
     // UTILS
     public static final String ERROR_INSTANTIATED_CLASS = "Essa classe não pode ser instanciada pois é somente leitura!";
+
     public static final String REMOVED_SUCESSFULL = "Registro excluído com sucesso";
 
     protected Messages() {

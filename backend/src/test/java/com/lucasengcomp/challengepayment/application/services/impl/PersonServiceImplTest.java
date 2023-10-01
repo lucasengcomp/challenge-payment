@@ -3,6 +3,7 @@ package com.lucasengcomp.challengepayment.application.services.impl;
 
 import com.lucasengcomp.challengepayment.application.dto.person.InsertPersonDTO;
 import com.lucasengcomp.challengepayment.application.dto.person.PersonDTO;
+import com.lucasengcomp.challengepayment.application.dto.person.SimplePersonDTO;
 import com.lucasengcomp.challengepayment.application.mappers.PersonMapper;
 import com.lucasengcomp.challengepayment.domain.exceptions.service.ResourceNotFoundException;
 import org.junit.jupiter.api.Assertions;
@@ -62,7 +63,7 @@ class PersonServiceImplTest {
     @DisplayName("Should insert a new Person")
     void insertPersonValid() {
         InsertPersonDTO insertPersonDTO = mapper.convertEntityToInsert(createPersonValid());
-        PersonDTO personInserted = service.insert(insertPersonDTO);
+        SimplePersonDTO personInserted = service.insert(insertPersonDTO);
 
         assertNotNull(personInserted);
         assertNotNull(personInserted.getId());
